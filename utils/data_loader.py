@@ -140,25 +140,27 @@ def collate_fn(data):
     return d 
 
 
-def prepare_data_seq(batch_size=32):  
+def prepare_data_seq(batch_size=config.batch_size):
 
-    pairs_tra, pairs_val, pairs_tst, vocab = load_dataset()
+    pairs_tra, pairs_val, vocab = load_dataset()
 
+    print("Number of train data",len(pairs_tra['target']))
     logging.info("Vocab  {} ".format(vocab.n_words))
 
     dataset_train = Dataset(pairs_tra, vocab)
     data_loader_tra = torch.utils.data.DataLoader(dataset=dataset_train,
                                                  batch_size=batch_size,
-                                                 shuffle=True, collate_fn=collate_fn)
+                                                 shuffle=False, collate_fn=collate_fn)
 
     dataset_valid = Dataset(pairs_val, vocab)
     data_loader_val = torch.utils.data.DataLoader(dataset=dataset_valid,
                                                  batch_size=batch_size,
-                                                 shuffle=True, collate_fn=collate_fn)
-    #print('val len:',len(dataset_valid))
-    dataset_test = Dataset(pairs_tst, vocab)
-    data_loader_tst = torch.utils.data.DataLoader(dataset=dataset_test,
-                                                 batch_size=1,
                                                  shuffle=False, collate_fn=collate_fn)
+    # #print('val len:',len(dataset_valid))
+    # dataset_test = Dataset(pairs_tst, vocab)
+    # data_loader_tst = torch.utils.data.DataLoader(dataset=dataset_test,
+    #                                              batch_size=1,
+    #                                              shuffle=False, collate_fn=collate_fn)
     write_config()
-    return data_loader_tra, data_loader_val, data_loader_tst, vocab, len(dataset_train.emo_map)
+    #return data_loader_tra, data_loader_val, data_loader_tst, vocab, len(dataset_train.emo_map)
+    return data_loader_tra, data_loader_val, vocab, len(dataset_train.emo_map)

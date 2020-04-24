@@ -41,6 +41,14 @@ def clean(sentence):
     sentence = sentence.lower()
     sentence = sentence.split()
     return sentence
+
+
+
+
+
+
+'''
+
 def read_langs(vocab):
     # save np.load
     np_load_old = np.load
@@ -187,28 +195,101 @@ def read_langs_persona(data_train, data_valid, data_test, vocab):
                 context = deque([], maxlen=3)
     assert len(data_test['context']) == len(data_test['target']) == len(data_test['emotion']) == len(data_test['situation'])
     return data_train, data_valid, data_test, vocab
+'''
+
+
+
+def read_langs_poem(vocab):
+
+    data_train = {'context': [], 'target': [], 'emotion': [], 'situation': []}
+    data_dev = {'context': [], 'target': [], 'emotion': [], 'situation': []}
+
+    return data_train, data_dev, vocab
+
+
+def read_langs_persona_poem(data_train, data_valid, vocab):
+    with open('data/poem/lyricQQmusic_train.txt', encoding='utf-8') as f_train:
+        for line in f_train:
+            line=line.split('\t',3)
+            topic=line[1].strip()
+            poems=line[2].strip().strip('\n')
+            sentences=poems.split('<enter>')
+            context = deque([], maxlen=3)
+            vocab.index_words(topic)
+            context.append(topic)
+            for sentence in sentences:
+                if sentence is None or '：' in sentence:
+                    continue
+                sentence=sentence.strip()
+                data_train['context'].append(list(context))
+                vocab.index_words(sentence)
+                data_train['target'].append(sentence)
+                context.append(sentence)
+
+                data_train['situation'].append(['dummy'])
+                data_train['emotion'].append('sentimental')
+
+    with open('data/poem/lyricQQmusic_valid.txt', encoding='utf-8') as f_valid:
+        for line in f_valid:
+            line=line.split('\t',3)
+            topic=line[1].strip()
+            poems=line[2].strip().strip('\n')
+            sentences=poems.split('<enter>')
+            context = deque([], maxlen=3)
+            vocab.index_words(topic)
+            context.append(topic)
+            for sentence in sentences:
+                if sentence is None or '：' in sentence:
+                    continue
+                sentence=sentence.strip()
+                data_valid['context'].append(list(context))
+                vocab.index_words(sentence)
+                data_valid['target'].append(sentence)
+                context.append(sentence)
+                data_valid['situation'].append(['dummy'])
+                data_valid['emotion'].append('sentimental')
+    print('Numbers of training data:    :',len(data_train['context']))
+    assert len(data_train['context']) == len(data_train['target'])
+
+    return data_train, data_valid, vocab
+
 
 def load_dataset():
-    if(os.path.exists('data/persona_ed/dataset_preproc.p')):
-        print("LOADING persona_ed")
-        with open('data/persona_ed/dataset_preproc.p', "rb") as f:
-            [data_tra, data_val, data_tst, vocab] = pickle.load(f)
-    else:
-        print("Building dataset...")
-        data_tra, data_val, data_tst, vocab  = read_langs(vocab=Lang({config.UNK_idx: "UNK", config.PAD_idx: "PAD", config.EOS_idx: "EOS", config.SOS_idx: "SOS", config.USR_idx:"USR", config.SYS_idx:"SYS", config.CLS_idx:"CLS", config.CLS1_idx:"CLS1", config.Y_idx:"Y",
-        9: 'key_surprised', 10: 'key_excited', 11: 'key_annoyed', 12: 'key_proud', 13: 'key_angry', 14: 'key_sad', 15: 'key_grateful', 16: 'key_lonely', 17: 'key_impressed', 18: 'key_afraid', 19: 'key_disgusted', 20: 'key_confident', 21: 'key_terrified', 22: 'key_hopeful',
-         23: 'key_anxious', 24: 'key_disappointed', 25: 'key_joyful', 26: 'key_prepared', 27: 'key_guilty', 28: 'key_furious', 29: 'key_nostalgic', 30: 'key_jealous', 31: 'key_anticipating', 32: 'key_embarrassed', 33: 'key_content', 34: 'key_devastated', 35: 'key_sentimental', 36: 'key_caring', 37: 'key_trusting', 38: 'key_ashamed', 39: 'key_apprehensive', 40: 'key_faithful'})) 
-        data_tra, data_val, data_tst, vocab = read_langs_persona(data_tra, data_val, data_tst, vocab)
-        
-        with open('data/persona_ed/dataset_preproc.p', "wb") as f:
-            pickle.dump([data_tra, data_val, data_tst, vocab], f)
-            print("Saved PICKLE")
+    # if(os.path.exists('data/persona_ed/dataset_preproc.p')):
+    #     print("LOADING persona_ed")
+    #     with open('data/persona_ed/dataset_preproc.p', "rb") as f:
+    #         [data_tra, data_val, vocab] = pickle.load(f)
+    # else:
+    print("Building dataset...")
+    '''
+    data_tra, data_val, data_tst, vocab  = read_langs(vocab=Lang({config.UNK_idx: "UNK", config.PAD_idx: "PAD", config.EOS_idx: "EOS", config.SOS_idx: "SOS", config.USR_idx:"USR", config.SYS_idx:"SYS", config.CLS_idx:"CLS", config.CLS1_idx:"CLS1", config.Y_idx:"Y",
+    9: 'key_surprised', 10: 'key_excited', 11: 'key_annoyed', 12: 'key_proud', 13: 'key_angry', 14: 'key_sad', 15: 'key_grateful', 16: 'key_lonely', 17: 'key_impressed', 18: 'key_afraid', 19: 'key_disgusted', 20: 'key_confident', 21: 'key_terrified', 22: 'key_hopeful',
+     23: 'key_anxious', 24: 'key_disappointed', 25: 'key_joyful', 26: 'key_prepared', 27: 'key_guilty', 28: 'key_furious', 29: 'key_nostalgic', 30: 'key_jealous', 31: 'key_anticipating', 32: 'key_embarrassed', 33: 'key_content', 34: 'key_devastated', 35: 'key_sentimental', 36: 'key_caring', 37: 'key_trusting', 38: 'key_ashamed', 39: 'key_apprehensive', 40: 'key_faithful'})) 
+    
+    data_tra, data_val, data_tst, vocab = read_langs_persona(data_tra, data_val, data_tst, vocab)
+    '''
+
+    data_tra, data_val, vocab  = read_langs_poem(vocab=Lang({config.UNK_idx: "UNK", config.PAD_idx: "PAD", config.EOS_idx: "EOS", config.SOS_idx: "SOS", config.USR_idx:"USR", config.SYS_idx:"SYS", config.CLS_idx:"CLS", config.CLS1_idx:"CLS1", config.Y_idx:"Y",
+    9: 'key_surprised', 10: 'key_excited', 11: 'key_annoyed', 12: 'key_proud', 13: 'key_angry', 14: 'key_sad', 15: 'key_grateful', 16: 'key_lonely', 17: 'key_impressed', 18: 'key_afraid', 19: 'key_disgusted', 20: 'key_confident', 21: 'key_terrified', 22: 'key_hopeful',
+     23: 'key_anxious', 24: 'key_disappointed', 25: 'key_joyful', 26: 'key_prepared', 27: 'key_guilty', 28: 'key_furious', 29: 'key_nostalgic', 30: 'key_jealous', 31: 'key_anticipating', 32: 'key_embarrassed', 33: 'key_content', 34: 'key_devastated', 35: 'key_sentimental', 36: 'key_caring', 37: 'key_trusting', 38: 'key_ashamed', 39: 'key_apprehensive', 40: 'key_faithful'}))
+
+
+    data_tra, data_val, vocab = read_langs_persona_poem(data_tra, data_val, vocab)
+
+
+
+    with open('data/persona_ed/dataset_preproc.p', "wb") as f:
+        pickle.dump([data_tra, data_val, vocab], f)
+        print("Saved PICKLE")
             
-    for i in range(3):
-        print('[situation]:', ' '.join(data_tra['situation'][i]))
-        print('[emotion]:', data_tra['emotion'][i])
-        print('[context]:', [' '.join(u) for u in data_tra['context'][i]])
-        print('[target]:', ' '.join(data_tra['target'][i]))
-        print(" ")
-    return data_tra, data_val, data_tst, vocab
+    # for i in range(3):
+    #     print('[situation]:', ' '.join(data_tra['situation'][i]))
+    #     print('[emotion]:', data_tra['emotion'][i])
+    #     print('[context]:', [' '.join(u) for u in data_tra['context'][i]])
+    #     print('[target]:', ' '.join(data_tra['target'][i]))
+    #     print(" ")
+
+
+
+    return data_tra, data_val, vocab
 

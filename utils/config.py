@@ -26,9 +26,9 @@ parser.add_argument("--lr", type=float, default=0.0001)
 parser.add_argument("--max_grad_norm", type=float, default=5.0)
 parser.add_argument("--beam_size", type=int, default=5)
 parser.add_argument("--save_path", type=str, default="save/test/")
-parser.add_argument("--save_path_pretrained", type=str, default="save/")
+parser.add_argument("--device", type=str)
+parser.add_argument("--save_path_pretrained", type=str)#, default="save/")
 parser.add_argument("--cuda", action="store_true")
-
 parser.add_argument("--pointer_gen", action="store_true")
 parser.add_argument("--oracle", action="store_true")
 parser.add_argument("--basic_learner", action="store_true")
@@ -113,7 +113,11 @@ lr_coverage=0.15
 eps = 1e-12
 epochs = 10000
 
-emb_file = arg.emb_file or "vectors/glove.6B.{}d.txt".format(str(emb_dim))
+#emb_file = arg.emb_file or "vectors/glove.6B.{}d.txt".format(str(emb_dim))
+#emb_file = arg.emb_file or "vectors/ppmi.literature.word"
+#emb_file = "vectors/sku_word2vec.txt"
+emb_file = "vectors/Tencent_AILab_ChineseEmbedding.txt"
+
 pretrain_emb = arg.pretrain_emb
 
 save_path = arg.save_path
@@ -130,6 +134,7 @@ depth = arg.depth
 filter = arg.filter
 
 v2 = arg.v2
+device=arg.device
 num_var_layers = arg.num_var_layers
 kl_ceiling = arg.kl_ceiling
 aux_ceiling = arg.aux_ceiling

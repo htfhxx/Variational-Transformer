@@ -107,7 +107,7 @@ class Encoder(nn.Module):
         return y
 class VarDecoder(nn.Module):
     def __init__(self, embedding_size, hidden_size, num_layers, num_heads, total_key_depth, total_value_depth,
-                 filter_size, vocab_size, max_length=200, input_dropout=0, layer_dropout=0, 
+                 filter_size, vocab_size, max_length=1000, input_dropout=0, layer_dropout=0,
                  attention_dropout=0.1, relu_dropout=0.1, universal=False):
         """
         Parameters:
@@ -157,7 +157,35 @@ class VarDecoder(nn.Module):
 
     def forward(self, inputs, encoder_output, posterior, mask):
         mask_src, mask_trg = mask
-        dec_mask = torch.gt(mask_trg + self.mask[:, :mask_trg.size(-1), :mask_trg.size(-1)], 0)
+        try:
+            dec_mask = torch.gt(mask_trg + self.mask[:, :mask_trg.size(-1), :mask_trg.size(-1)], 0)
+        except:
+            print('='*100)
+            print(mask_trg.size)
+            print(mask_trg)
+            print('-' * 50)
+            print(self.mask.size)
+            print(self.mask)
+            with open('save/wrong.txt','w',encoding='utf-8') as f :
+                f.write(str(mask_trg))
+                f.write('-'*100)
+                f.write(str(self.mask))
+
+            '''
+              File "main.py", line 76, in <module>
+    loss, ppl, kld, bow, elbo = model.train_one_batch(next(data_iter),n_iter)
+  File "/mnt/yardcephfs/mmyard/g_wxg_td_prc/dayerzhang/tmpv_tfhuo/workspace/Variational-Transformer/model/SVT.py", line 314, in train_one_batch
+    pre_logit, attn_dist, mean, log_var, probs= self.decoder(self.embedding(dec_batch_shift)+meta.unsqueeze(1),encoder_outputs, True, (mask_src,mask_trg))
+  File "/mnt/yardcephfs/mmyard/g_wxg_td_prc/dayerzhang/tmpv_tfhuo/env/anaconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 493, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/mnt/yardcephfs/mmyard/g_wxg_td_prc/dayerzhang/tmpv_tfhuo/workspace/Variational-Transformer/model/SVT.py", line 160, in forward
+    dec_mask = torch.gt(mask_trg + self.mask[:, :mask_trg.size(-1), :mask_trg.size(-1)], 0)
+RuntimeError: The size of tensor a (310) must match the size of tensor b (200) at non-singleton dimension 2
+ 
+            '''
+
+
+
         dec_mask_p = mask_trg
         #Add input dropout
 
@@ -288,6 +316,7 @@ class CvaeTrans(nn.Module):
         torch.save(state, model_save_path)
 
     def train_one_batch(self, batch, iter, train=True):
+        #print(batch)
         enc_batch, _, _, enc_batch_extend_vocab, extra_zeros, _, _ = get_input_from_batch(batch)
         dec_batch, _, _, _, _ = get_output_from_batch(batch)
         if(train):

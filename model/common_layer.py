@@ -674,7 +674,9 @@ def _get_attn_subsequent_mask(size):
         * subsequent_mask `[1 x size x size]`
     """
     attn_shape = (1, size, size)
-    subsequent_mask = np.triu(np.ones(attn_shape), k=1).astype('uint8')
+    #subsequent_mask = np.triu(np.ones(attn_shape), k=1).astype('uint8')
+    subsequent_mask = np.triu(np.ones(attn_shape), k=1).astype('bool')
+
     subsequent_mask = torch.from_numpy(subsequent_mask)
     if(config.USE_CUDA):
         return subsequent_mask.cuda()
@@ -684,7 +686,8 @@ def _get_attn_subsequent_mask(size):
 
 def _get_attn_self_mask(batch_size,size):
     attn_shape = (size, size)
-    self_mask = np.zeros(attn_shape).astype('uint8')
+    self_mask = np.zeros(attn_shape).astype('bool')
+    #self_mask = np.zeros(attn_shape).astype('uint8')
     np.fill_diagonal(self_mask,1)
     self_mask = torch.from_numpy(self_mask)
     self_mask = self_mask.unsqueeze(0).expand(batch_size,size,size)
@@ -717,6 +720,7 @@ def gen_embeddings(vocab):
     """
     embeddings = np.random.randn(vocab.n_words, config.emb_dim) * 0.01 
     print('Embeddings: %d x %d' % (vocab.n_words, config.emb_dim))
+    i=0
     if config.emb_file is not None:
         print('Loading embedding file: %s' % config.emb_file)
         pre_trained = 0
@@ -727,7 +731,9 @@ def gen_embeddings(vocab):
                     pre_trained += 1
                     embeddings[vocab.word2index[sp[0]]] = [float(x) for x in sp[1:]]
             else:
-                print(sp[0])
+                i+=1
+                #print(sp[0])
+        print("Number of len(sp)!=301：",i)
         print('Pre-trained: %d (%.2f%%)' % (pre_trained, pre_trained * 100.0 / vocab.n_words))
     return embeddings
 
@@ -954,7 +960,7 @@ def evaluate_tra(model, data,  ty='train', max_dec_step=50):
             print_custum(emotion= batch["program_txt"][i],
                         dial=[" ".join(s) for s in batch['input_txt'][i]] if config.dataset=="empathetic" else " ".join(batch['input_txt'][i]),
                         ref=rf,
-                        hyp_g=greedy_sent)  
+                        hyp_g=greedy_sent)
         if i>10:
             break 
     print("end print training samples")

@@ -17,7 +17,7 @@ import time
 import numpy as np
 import math
 from collections import deque
-DIALOG_SIZE = 3
+DIALOG_SIZE = 10
 
 class Dataset(data.Dataset):
     """Custom data.Dataset compatible with data.DataLoader."""
@@ -64,20 +64,26 @@ def make_batch(inp,vacab):
     loader = torch.utils.data.DataLoader(dataset=d, batch_size=1, shuffle=False, collate_fn=collate_fn)
     return iter(loader).next()
 
-data_loader_tra, data_loader_val, data_loader_tst, vocab, program_number = prepare_data_seq(batch_size=config.batch_size)
+data_loader_tra, data_loader_val, vocab, program_number = prepare_data_seq(batch_size=config.batch_size)
 
 if(config.model == "cvae"):
     model = SeqToSeq(vocab, model_file_path=config.save_path_pretrained, is_eval=True)
 else:
     model = CvaeTrans(vocab,emo_number=program_number, model_file_path=config.save_path_pretrained, is_eval=True)
 print('Start to chat')
-context = deque(DIALOG_SIZE * ['None'], maxlen=DIALOG_SIZE)
+
 while(True):
     msg = input(">>> ")
     if(len(str(msg).rstrip().lstrip()) != 0):
-
+        context = deque(DIALOG_SIZE * ['None'], maxlen=DIALOG_SIZE)
         context.append(str(msg).rstrip().lstrip())
-        batch = make_batch(context, vocab)
-        sent_g = model.decoder_greedy(batch,max_dec_step=30)
-        print(">>>",sent_g[0])
-        context.append(sent_g[0])
+
+        for i in range(10):
+            batch = make_batch(context, vocab)
+            sent_g = model.decoder_greedy(batch,max_dec_step=30)
+            print(">>>",sent_g[0])
+            context.append(sent_g[0].rstrip().lstrip())
+
+
+
+

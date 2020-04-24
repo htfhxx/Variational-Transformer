@@ -117,3 +117,59 @@ Interact with SVT
 ❱❱❱ python3 interact.py --model cvaetrs --v2 --cuda --persona --dataset empathetic --save_path_pretrained save/v2_cvae_trs_ed_persona_0.6/model_15999_4.5419_18.7720_0.0000_0.0000_1.6095 --num_var_layers 1
 
 ```
+
+### 参数解读
+##### --model 
+trs:                        Transformer
+trs --v2 :                  pre-trained SVT with MLE  
+cvaetrs:                    GVT  
+cvaetrs --v2 :              SVT   
+
+#####  --save_path_pretrained
+加载预训练模型的地址，落实到模型名字
+                   
+
+### gogogo
+cpu：
+python3 main.py --model cvaetrs --v2  --emb_dim 300 --hidden_dim 300 --hop 4 --heads 4  --batch_size 16 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path save/trs_ed_persona_v2/   > save/out.txt 2>&1 &
+
+GPU：
+python main.py --model cvaetrs --v2 --cuda --device 1 --emb_dim 300 --hidden_dim 300 --hop 4 --heads 4 --batch_size 32 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path save/trs_ed_persona_v2/ > save/out.txt
+
+
+nohup python main.py --model cvaetrs --v2 --cuda --device 1 --emb_dim 300 --hidden_dim 300 --hop 4 --heads 4 --batch_size 16 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path save/trs_ed_persona_v2/ > save/out.txt  2>&1 &
+
+
+Building dataset...
+Numbers of training data:    : 1734572             
+Saved PICKLE
+Number of train data 1734572
+04-23 14:09 Vocab  7043 
+Embeddings: 7043 x 300
+Loading embedding file: vectors/sku_word2vec.txt
+
+
+### test test test
+python interact.py --model cvaetrs --v2 --persona --dataset empathetic --save_path_pretrained save/v2_cvae_trs_ed_persona_0.6/model_79999_4.2606_12.1841_0.0000_0.0000_1.7605 --num_var_layers 1
+
+
+
+
+### 数据字段
+['context']
+['target']
+['situation']
+['emotion']
+
+[situation]: i remember going to the fireworks with my best friend. there was a lot of people, but it only felt like us in the world.
+[emotion]: sentimental
+[context]: ['this was a best friend. i miss her.', 'where has she gone?', 'we no longer talk.']
+
+[target]: oh was this something that happened because of an argument?
+
+
+
+
+nohup python3 main.py --model cvaetrs --v2 --emb_dim 300 --hidden_dim 300 --hop 4 --heads 4 --cuda --device=1 --batch_size 16 --persona  --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.6 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic  --save_path save/v2_cvae_trs_ed_persona_0.6/ > save/out.txt 2>&1 &
+
+
