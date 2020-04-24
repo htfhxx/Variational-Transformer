@@ -3,39 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a0598827-c110-4458-88bc-5e0fa538b85b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Persona/test_self_original.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Persona/train_self_original.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Persona/valid_self_original.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/empathetic-dialogue/sys_dialog_texts.dev.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/empathetic-dialogue/sys_dialog_texts.test.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/empathetic-dialogue/sys_dialog_texts.train.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/empathetic-dialogue/sys_emotion_texts.dev.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/empathetic-dialogue/sys_emotion_texts.test.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/empathetic-dialogue/sys_emotion_texts.train.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/empathetic-dialogue/sys_situation_texts.dev.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/empathetic-dialogue/sys_situation_texts.test.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/empathetic-dialogue/sys_situation_texts.train.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/empathetic-dialogue/sys_target_texts.dev.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/empathetic-dialogue/sys_target_texts.test.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/empathetic-dialogue/sys_target_texts.train.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mojitalk_data/cvae.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mojitalk_data/dev.ori" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mojitalk_data/dev.rep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mojitalk_data/emoji-test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mojitalk_data/emoji_reader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mojitalk_data/readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mojitalk_data/test.ori" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mojitalk_data/test.rep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mojitalk_data/train.ori" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mojitalk_data/train.rep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mojitalk_data/vocab.ori" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interact.py" beforeDir="false" afterPath="$PROJECT_DIR$/interact.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/SVT.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/SVT.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/common_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/common_layer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/data_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/persona_ed_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/persona_ed_reader.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,8 +19,8 @@
               <entry file="file://$PROJECT_DIR$/README.md">
                 <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
                   <state split_layout="SPLIT">
-                    <first_editor relative-caret-position="522">
-                      <caret line="139" column="315" selection-start-line="139" selection-start-column="314" selection-end-line="139" selection-end-column="315" />
+                    <first_editor relative-caret-position="466">
+                      <caret line="136" column="250" selection-start-line="136" selection-start-column="240" selection-end-line="136" selection-end-column="250" />
                     </first_editor>
                     <second_editor />
                   </state>
@@ -67,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="80" column="51" lean-forward="true" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
+            <state relative-caret-position="2109">
+              <caret line="111" column="48" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="48" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -79,20 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/SVT.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="321" column="18" lean-forward="true" selection-start-line="321" selection-start-column="18" selection-end-line="321" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/data_loader.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="158" column="43" lean-forward="true" selection-start-line="158" selection-start-column="43" selection-end-line="158" selection-end-column="43" />
+            <state relative-caret-position="620">
+              <caret line="337" column="36" lean-forward="true" selection-start-line="337" selection-start-column="36" selection-end-line="337" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -152,8 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ngrams</find>
-      <find>save_path_pretrained</find>
       <find>trained</find>
       <find>data_loader_tst</find>
       <find>model_file_path</find>
@@ -181,6 +137,8 @@
       <find>max</find>
       <find>self.mask</find>
       <find>VarDecoder</find>
+      <find>--emb_dim 300</find>
+      <find>empathetic</find>
       <find>max_length</find>
     </findStrings>
   </component>
@@ -194,10 +152,10 @@
         <option value="$PROJECT_DIR$/interact.py" />
         <option value="$PROJECT_DIR$/model/common_layer.py" />
         <option value="$PROJECT_DIR$/utils/data_loader.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/utils/config.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/model/SVT.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -260,6 +218,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -295,12 +254,12 @@
       <option name="presentableId" value="Default" />
       <updated>1587525568244</updated>
       <workItem from="1587525571090" duration="6071000" />
-      <workItem from="1587539611818" duration="41106000" />
+      <workItem from="1587539611818" duration="42046000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47177000" />
+    <option name="totallyTimeSpent" value="48117000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="104" y="-1088" width="1936" height="1056" extended-state="6" />
@@ -409,23 +368,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/data_loader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="158" column="43" lean-forward="true" selection-start-line="158" selection-start-column="43" selection-end-line="158" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="522">
-            <caret line="139" column="315" selection-start-line="139" selection-start-column="314" selection-end-line="139" selection-end-column="315" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/interact.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="778">
@@ -470,20 +412,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils/data_loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="26" column="38" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/SVT.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="337" column="36" lean-forward="true" selection-start-line="337" selection-start-column="36" selection-end-line="337" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="80" column="51" lean-forward="true" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
+        <state relative-caret-position="2109">
+          <caret line="111" column="48" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="48" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/SVT.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="321" column="18" lean-forward="true" selection-start-line="321" selection-start-column="18" selection-end-line="321" selection-end-column="18" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="466">
+            <caret line="136" column="250" selection-start-line="136" selection-start-column="240" selection-end-line="136" selection-end-column="250" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
