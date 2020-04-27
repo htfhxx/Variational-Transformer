@@ -17,9 +17,16 @@ import time
 import numpy as np
 import math
 #from tensorboardX import SummaryWriter
+import json
 
 #data_loader_tra, data_loader_val, data_loader_tst, vocab, program_number = prepare_data_seq(batch_size=config.batch_size)
 data_loader_tra, data_loader_val, vocab, program_number = prepare_data_seq(batch_size=config.batch_size)
+
+
+# with open("save/vocab.json", "w",encoding='utf-8') as f:
+#     f.write(str(vocab.word2index))
+
+
 
 if config.USE_CUDA:
     os.environ["CUDA_VISIBLE_DEVICES"] = config.device
@@ -59,7 +66,7 @@ elif(config.model == "cvaetrs"):
 
 
 
-check_iter = 1000
+check_iter = 100
 
 try:
     model = model.train()

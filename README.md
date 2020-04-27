@@ -134,10 +134,10 @@ cpu：
 python3 main.py --model cvaetrs --v2  --emb_dim 200 --hidden_dim 300 --hop 4 --heads 4  --batch_size 16 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path save/trained_model/   > save/out.txt 2>&1 &
 
 GPU：
-python main.py --model cvaetrs --v2 --cuda --device 1 --emb_dim 200 --hidden_dim 300 --hop 4 --heads 4 --batch_size 32 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path save/trained_model/            > save/out.txt
+python3 main.py --model cvaetrs --v2 --cuda --device 0 --emb_dim 200 --hidden_dim 300 --hop 4 --heads 4 --batch_size 4 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path save/trained_model/            > save/out.txt
 
 
-nohup python main.py --model cvaetrs --v2 --cuda --device 1 --emb_dim 200 --hidden_dim 300 --hop 4 --heads 4 --batch_size 16 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path save/trained_model/ > save/out.txt  2>&1 &
+nohup python3 main.py --model cvaetrs --v2 --cuda --device 0 --emb_dim 200 --hidden_dim 300 --hop 4 --heads 4 --batch_size 4 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path save/trained_model/ > save/out.txt  2>&1 &
 
 
 

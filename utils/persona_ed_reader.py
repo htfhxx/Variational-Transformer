@@ -12,7 +12,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=1)
 import re
 import time
-import nltk
+#import nltk
 from collections import deque
 
 class Lang:
@@ -208,8 +208,10 @@ def read_langs_poem(vocab):
 
 
 def read_langs_persona_poem(data_train, data_valid, vocab):
+    i=0
     with open('data/poem/lyricQQmusic_train.txt', encoding='utf-8') as f_train:
         for line in f_train:
+            i+=1
             line=line.split('\t',3)
             topic=line[1].strip()
             poems=line[2].strip().strip('\n')
@@ -228,7 +230,7 @@ def read_langs_persona_poem(data_train, data_valid, vocab):
 
                 data_train['situation'].append(['dummy'])
                 data_train['emotion'].append('sentimental')
-
+    print("iiiiiiiiiiiiiiiiiiiiii:    ",i )
     with open('data/poem/lyricQQmusic_valid.txt', encoding='utf-8') as f_valid:
         for line in f_valid:
             line=line.split('\t',3)
@@ -250,7 +252,6 @@ def read_langs_persona_poem(data_train, data_valid, vocab):
                 data_valid['emotion'].append('sentimental')
     print('Numbers of training data:    :',len(data_train['context']))
     assert len(data_train['context']) == len(data_train['target'])
-
     return data_train, data_valid, vocab
 
 

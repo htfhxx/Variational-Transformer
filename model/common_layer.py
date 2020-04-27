@@ -16,12 +16,163 @@ import pprint
 from tqdm import tqdm
 pp = pprint.PrettyPrinter(indent=1)
 import numpy as np
-import nltk
-from nltk.util import ngrams
+#import nltk
+#from nltk.util import ngrams
 from functools import reduce
 import operator
 #from beam_omt import Translator
 # import matplotlib.pyplot as plt
+
+
+class chain(object):
+    """
+    chain(*iterables) --> chain object
+
+    Return a chain object whose .__next__() method returns elements from the
+    first iterable until it is exhausted, then elements from the next
+    iterable, until all of the iterables are exhausted.
+    """
+
+    @classmethod
+    def from_iterable(cls, iterable):  # real signature unknown; restored from __doc__
+        """
+        chain.from_iterable(iterable) --> chain object
+
+        Alternate chain() constructor taking a single iterable argument
+        that evaluates lazily.
+        """
+        pass
+
+    def __getattribute__(self, *args, **kwargs):  # real signature unknown
+        """ Return getattr(self, name). """
+        pass
+
+    def __init__(self, *iterables):  # real signature unknown; restored from __doc__
+        pass
+
+    def __iter__(self, *args, **kwargs):  # real signature unknown
+        """ Implement iter(self). """
+        pass
+
+    @staticmethod  # known case of __new__
+    def __new__(*args, **kwargs):  # real signature unknown
+        """ Create and return a new object.  See help(type) for accurate signature. """
+        pass
+
+    def __next__(self, *args, **kwargs):  # real signature unknown
+        """ Implement next(self). """
+        pass
+
+    def __reduce__(self, *args, **kwargs):  # real signature unknown
+        """ Return state information for pickling. """
+        pass
+
+    def __setstate__(self, *args, **kwargs):  # real signature unknown
+        """ Set state information for unpickling. """
+        pass
+
+def pad_sequence(
+    sequence,
+    n,
+    pad_left=False,
+    pad_right=False,
+    left_pad_symbol=None,
+    right_pad_symbol=None,
+):
+    """
+    Returns a padded sequence of items before ngram extraction.
+
+        >>> list(pad_sequence([1,2,3,4,5], 2, pad_left=True, pad_right=True, left_pad_symbol='<s>', right_pad_symbol='</s>'))
+        ['<s>', 1, 2, 3, 4, 5, '</s>']
+        >>> list(pad_sequence([1,2,3,4,5], 2, pad_left=True, left_pad_symbol='<s>'))
+        ['<s>', 1, 2, 3, 4, 5]
+        >>> list(pad_sequence([1,2,3,4,5], 2, pad_right=True, right_pad_symbol='</s>'))
+        [1, 2, 3, 4, 5, '</s>']
+
+    :param sequence: the source data to be padded
+    :type sequence: sequence or iter
+    :param n: the degree of the ngrams
+    :type n: int
+    :param pad_left: whether the ngrams should be left-padded
+    :type pad_left: bool
+    :param pad_right: whether the ngrams should be right-padded
+    :type pad_right: bool
+    :param left_pad_symbol: the symbol to use for left padding (default is None)
+    :type left_pad_symbol: any
+    :param right_pad_symbol: the symbol to use for right padding (default is None)
+    :type right_pad_symbol: any
+    :rtype: sequence or iter
+    """
+    sequence = iter(sequence)
+    if pad_left:
+        sequence = chain((left_pad_symbol,) * (n - 1), sequence)
+    if pad_right:
+        sequence = chain(sequence, (right_pad_symbol,) * (n - 1))
+    return sequence
+
+
+def ngrams(
+    sequence,
+    n,
+    pad_left=False,
+    pad_right=False,
+    left_pad_symbol=None,
+    right_pad_symbol=None,
+):
+    """
+    Return the ngrams generated from a sequence of items, as an iterator.
+    For example:
+
+        >>> from nltk.util import ngrams
+        >>> list(ngrams([1,2,3,4,5], 3))
+        [(1, 2, 3), (2, 3, 4), (3, 4, 5)]
+
+    Wrap with list for a list version of this function.  Set pad_left
+    or pad_right to true in order to get additional ngrams:
+
+        >>> list(ngrams([1,2,3,4,5], 2, pad_right=True))
+        [(1, 2), (2, 3), (3, 4), (4, 5), (5, None)]
+        >>> list(ngrams([1,2,3,4,5], 2, pad_right=True, right_pad_symbol='</s>'))
+        [(1, 2), (2, 3), (3, 4), (4, 5), (5, '</s>')]
+        >>> list(ngrams([1,2,3,4,5], 2, pad_left=True, left_pad_symbol='<s>'))
+        [('<s>', 1), (1, 2), (2, 3), (3, 4), (4, 5)]
+        >>> list(ngrams([1,2,3,4,5], 2, pad_left=True, pad_right=True, left_pad_symbol='<s>', right_pad_symbol='</s>'))
+        [('<s>', 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, '</s>')]
+
+
+    :param sequence: the source data to be converted into ngrams
+    :type sequence: sequence or iter
+    :param n: the degree of the ngrams
+    :type n: int
+    :param pad_left: whether the ngrams should be left-padded
+    :type pad_left: bool
+    :param pad_right: whether the ngrams should be right-padded
+    :type pad_right: bool
+    :param left_pad_symbol: the symbol to use for left padding (default is None)
+    :type left_pad_symbol: any
+    :param right_pad_symbol: the symbol to use for right padding (default is None)
+    :type right_pad_symbol: any
+    :rtype: sequence or iter
+    """
+    sequence = pad_sequence(
+        sequence, n, pad_left, pad_right, left_pad_symbol, right_pad_symbol
+    )
+
+    history = []
+    while n > 1:
+        # PEP 479, prevent RuntimeError from being raised when StopIteration bubbles out of generator
+        try:
+            next_item = next(sequence)
+        except StopIteration:
+            # no more data, terminate the generator
+            return
+        history.append(next_item)
+        n -= 1
+    for item in sequence:
+        history.append(item)
+        yield tuple(history)
+        del history[0]
+
 
 
 
@@ -718,6 +869,26 @@ def gen_embeddings(vocab):
         If an embedding file is not given or a word is not in the embedding file,
         a randomly initialized vector will be used.
     """
+    # #保存一个小的
+    # embeddings = np.random.randn(vocab.n_words, config.emb_dim) * 0.01
+    # print('Embeddings: %d x %d' % (vocab.n_words, config.emb_dim))
+    # i=0
+    # if config.emb_file is not None:
+    #     print('Loading embedding file: %s' % config.emb_file)
+    #     pre_trained = 0
+    #     with open('vectors/small_tencentAIlab.txt','w',encoding='utf-8') as f:
+    #         for line in open(config.emb_file).readlines():
+    #             sp = line.split()
+    #             if(len(sp) == config.emb_dim + 1):
+    #                 if sp[0] in vocab.word2index:
+    #                     pre_trained += 1
+    #                     f.write(line)
+    #             else:
+    #                 i+=1
+    #                 #print(sp[0])
+    #         print("Number of len(sp)!=301：",i)
+    #         print('Pre-trained: %d (%.2f%%)' % (pre_trained, pre_trained * 100.0 / vocab.n_words))
+
     embeddings = np.random.randn(vocab.n_words, config.emb_dim) * 0.01 
     print('Embeddings: %d x %d' % (vocab.n_words, config.emb_dim))
     i=0

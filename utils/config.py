@@ -116,7 +116,9 @@ epochs = 10000
 #emb_file = arg.emb_file or "vectors/glove.6B.{}d.txt".format(str(emb_dim))
 #emb_file = arg.emb_file or "vectors/ppmi.literature.word"
 #emb_file = "vectors/sku_word2vec.txt"
-emb_file = "vectors/Tencent_AILab_ChineseEmbedding.txt"
+#emb_file = "vectors/Tencent_AILab_ChineseEmbedding.txt"
+#emb_file = "/data/tfhuo/Tencent_AILab_ChineseEmbedding.txt"
+emb_file = "vectors/small_tencentAIlab.txt"
 
 pretrain_emb = arg.pretrain_emb
 
