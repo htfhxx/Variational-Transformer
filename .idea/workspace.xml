@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0598827-c110-4458-88bc-5e0fa538b85b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/SVT.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/SVT.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/common_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/common_layer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/nlp.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/nlp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/data_loader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/persona_ed_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/persona_ed_reader.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="62" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
+            <state relative-caret-position="342">
+              <caret line="60" selection-start-line="60" selection-end-line="61" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -32,19 +31,33 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/data_loader.py">
+        <entry file="file://$PROJECT_DIR$/data/poem/lyricQQmusic_valid_small.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="144" column="37" selection-start-line="144" selection-start-column="37" selection-end-line="144" selection-end-column="37" />
+            <state relative-caret-position="-3140" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/poem/lyricQQmusic_valid.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-17143" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/SVT.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="652" column="39" selection-start-line="652" selection-start-column="31" selection-end-line="652" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1668260088/383581205/torch/utils/data/dataloader.py">
+        <entry file="file://$PROJECT_DIR$/utils/data_loader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-763">
-              <caret line="119" column="8" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="8" />
+            <state relative-caret-position="1482">
+              <caret line="165" column="69" selection-start-line="165" selection-start-column="56" selection-end-line="165" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -52,19 +65,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/persona_ed_reader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="286" column="51" selection-start-line="286" selection-start-column="51" selection-end-line="286" selection-end-column="51" />
+            <state relative-caret-position="286">
+              <caret line="320" column="55" selection-start-line="320" selection-start-column="32" selection-end-line="320" selection-end-column="55" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/common_layer.py">
+        <entry file="file://$PROJECT_DIR$/interact.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="876" column="38" lean-forward="true" selection-start-line="876" selection-start-column="38" selection-end-line="876" selection-end-column="38" />
+            <state relative-caret-position="664">
+              <caret line="82" column="41" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="41" />
               <folding>
-                <element signature="e#125#137#0" expanded="true" />
+                <element signature="e#0#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/seq2seq.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="425" column="13" selection-start-line="425" selection-start-column="8" selection-end-line="425" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,8 +101,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="126" column="21" lean-forward="true" selection-start-line="126" selection-start-column="21" selection-end-line="126" selection-end-column="21" />
+            <state relative-caret-position="707">
+              <caret line="122" column="16" lean-forward="true" selection-start-line="122" selection-start-column="16" selection-end-line="123" selection-end-column="43" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -86,8 +114,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="394">
-                <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
+              <first_editor relative-caret-position="421">
+                <caret line="142" column="6" lean-forward="true" selection-start-line="142" selection-start-column="6" selection-end-line="142" selection-end-column="6" />
               </first_editor>
               <second_editor />
             </state>
@@ -105,22 +133,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>shuffle</find>
-      <find>print(&quot;Contex</find>
-      <find>print</find>
-      <find>uint8</find>
-      <find>n_iter</find>
-      <find>mask</find>
-      <find>gradient_accumulation_steps</find>
-      <find>len</find>
-      <find>DIALOG_SIZE</find>
-      <find>embedding</find>
-      <find>max</find>
-      <find>self.mask</find>
-      <find>VarDecoder</find>
       <find>--emb_dim 300</find>
       <find>perl</find>
-      <find>max_length</find>
       <find>empathetic</find>
       <find>--pretrain_emb</find>
       <find>print_custum</find>
@@ -133,8 +147,22 @@
       <find>data/persona_ed/dataset_preproc.p</find>
       <find>iiiiiiiiii</find>
       <find>killed</find>
+      <find>batch_size</find>
+      <find>save_path_pretrained</find>
+      <find>iter</find>
       <find>exit</find>
       <find>embedd</find>
+      <find>decoder_greedy</find>
+      <find>max_length</find>
+      <find>x += self.timin</find>
+      <find>posterior</find>
+      <find>logits = logits.masked_fill(mask, -1e18)</find>
+      <find>encoder_output</find>
+      <find>model_file_path</find>
+      <find>emo_number</find>
+      <find>1000</find>
+      <find>__init__</find>
+      <find>program_number</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,19 +172,19 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/interact.py" />
-        <option value="$PROJECT_DIR$/utils/data_loader.py" />
-        <option value="$PROJECT_DIR$/model/SVT.py" />
         <option value="$PROJECT_DIR$/test.ipynb" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/utils/nlp.py" />
-        <option value="$PROJECT_DIR$/utils/persona_ed_reader.py" />
-        <option value="$PROJECT_DIR$/model/common_layer.py" />
         <option value="$PROJECT_DIR$/utils/config.py" />
+        <option value="$PROJECT_DIR$/utils/data_loader.py" />
+        <option value="$PROJECT_DIR$/model/common_layer.py" />
+        <option value="$PROJECT_DIR$/model/SVT.py" />
+        <option value="$PROJECT_DIR$/utils/persona_ed_reader.py" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="104" />
     <option name="y" value="-1088" />
     <option name="width" value="1936" />
@@ -167,7 +195,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -183,6 +210,12 @@
             <path>
               <item name="Variational-Transformer" type="b2602c69:ProjectViewProjectNode" />
               <item name="Variational-Transformer" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="poem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Variational-Transformer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Variational-Transformer" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -194,6 +227,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -234,19 +268,21 @@
       <updated>1587525568244</updated>
       <workItem from="1587525571090" duration="6071000" />
       <workItem from="1587539611818" duration="48120000" />
-      <workItem from="1587898571882" duration="11947000" />
+      <workItem from="1587898571882" duration="24204000" />
+      <workItem from="1588495479459" duration="1091000" />
+      <workItem from="1588600110173" duration="9158000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66138000" />
+    <option name="totallyTimeSpent" value="88644000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="104" y="-1088" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.76099706" visible="true" weight="0.20895523" />
-      <window_info id="Structure" order="1" sideWeight="0.23900293" side_tool="true" weight="0.277738" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.75887394" visible="true" weight="0.21321961" />
+      <window_info id="Structure" order="1" sideWeight="0.24112608" side_tool="true" visible="true" weight="0.21321961" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -294,21 +330,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/Persona/train_self_original.txt" />
-    <entry file="file://$PROJECT_DIR$/interact.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="778">
-          <caret line="88" selection-start-line="88" selection-end-line="88" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/poem/lyricQQmusic_valid.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17159" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/poem/lyricQQmusic.txt">
       <provider selected="true" editor-type-id="LargeFileEditor">
         <state relative-caret-position="-16131" />
@@ -381,22 +402,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/seq2seq.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/SVT.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="337" column="36" lean-forward="true" selection-start-line="337" selection-start-column="36" selection-end-line="337" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/transformer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
@@ -430,62 +435,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1668260088/383581205/torch/utils/data/dataloader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="62" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
+        <state relative-caret-position="245">
+          <caret line="193" column="25" selection-start-line="193" selection-start-column="15" selection-end-line="193" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interact.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="664">
+          <caret line="82" column="41" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="41" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1668260088/383581205/torch/utils/data/dataloader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-763">
-          <caret line="119" column="8" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/persona_ed_reader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="286" column="51" selection-start-line="286" selection-start-column="51" selection-end-line="286" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/common_layer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="876" column="38" lean-forward="true" selection-start-line="876" selection-start-column="38" selection-end-line="876" selection-end-column="38" />
+        <state relative-caret-position="302">
+          <caret line="654" column="8" lean-forward="true" selection-start-line="654" selection-start-column="8" selection-end-line="654" selection-end-column="8" />
           <folding>
             <element signature="e#125#137#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/model/seq2seq.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="425" column="13" selection-start-line="425" selection-start-column="8" selection-end-line="425" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils/data_loader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="144" column="37" selection-start-line="144" selection-start-column="37" selection-end-line="144" selection-end-column="37" />
+        <state relative-caret-position="1482">
+          <caret line="165" column="69" selection-start-line="165" selection-start-column="56" selection-end-line="165" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/persona_ed_reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="320" column="55" selection-start-line="320" selection-start-column="32" selection-end-line="320" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="126" column="21" lean-forward="true" selection-start-line="126" selection-start-column="21" selection-end-line="126" selection-end-column="21" />
+        <state relative-caret-position="707">
+          <caret line="122" column="16" lean-forward="true" selection-start-line="122" selection-start-column="16" selection-end-line="123" selection-end-column="43" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/model/SVT.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="652" column="39" selection-start-line="652" selection-start-column="31" selection-end-line="652" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="60" selection-start-line="60" selection-end-line="61" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/poem/lyricQQmusic_valid.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17143" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/poem/lyricQQmusic_valid_small.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3140" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="394">
-            <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
+          <first_editor relative-caret-position="421">
+            <caret line="142" column="6" lean-forward="true" selection-start-line="142" selection-start-column="6" selection-end-line="142" selection-end-column="6" />
           </first_editor>
           <second_editor />
         </state>

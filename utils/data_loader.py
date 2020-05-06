@@ -150,7 +150,7 @@ def prepare_data_seq(batch_size=config.batch_size):
     dataset_train = Dataset(pairs_tra, vocab)
     data_loader_tra = torch.utils.data.DataLoader(dataset=dataset_train,
                                                  batch_size=batch_size,
-                                                 shuffle=False, collate_fn=collate_fn)
+                                                 shuffle=True, collate_fn=collate_fn)
 
     dataset_valid = Dataset(pairs_val, vocab)
     data_loader_val = torch.utils.data.DataLoader(dataset=dataset_valid,

@@ -254,6 +254,49 @@ def read_langs_persona_poem(data_train, data_valid, vocab):
     assert len(data_train['context']) == len(data_train['target'])
     return data_train, data_valid, vocab
 
+def read_langs_persona_poem_all(data_train, data_valid, vocab):
+    with open('data/poem/lyricQQmusic_train.txt', encoding='utf-8') as f_train:
+        for line in f_train:
+            line=line.split('\t',3)
+            topic=line[1].strip()
+            poems=line[2].strip().strip('\n')
+            sentences=poems.split('<enter>')
+            sentence_string=''
+            for sentence in sentences:
+                if sentence is None or '：' in sentence:
+                    continue
+                sentence_string=sentence_string+sentence+ ' > '
+            context = deque([], maxlen=3)
+            vocab.index_words(topic)
+            vocab.index_words(sentence_string)
+            context.append(topic)
+            data_train['context'].append(list(context))
+            data_train['target'].append(sentence_string[:999])
+            data_train['situation'].append(['dummy'])
+            data_train['emotion'].append('sentimental')
+    with open('data/poem/lyricQQmusic_valid.txt', encoding='utf-8') as f_valid:
+        for line in f_valid:
+            line=line.split('\t',3)
+            topic=line[1].strip()
+            poems=line[2].strip().strip('\n')
+            sentences=poems.split('<enter>')
+            sentence_string=''
+            for sentence in sentences:
+                if sentence is None or '：' in sentence:
+                    continue
+                sentence_string=sentence_string+sentence + ' > '
+            context = deque([], maxlen=3)
+            vocab.index_words(topic)
+            vocab.index_words(sentence_string)
+            context.append(topic)
+            data_train['context'].append(list(context))
+            data_train['target'].append(sentence_string[:999])
+            data_train['situation'].append(['dummy'])
+            data_train['emotion'].append('sentimental')
+    print('Numbers of training data:    :',len(data_train['context']))
+    assert len(data_train['context']) == len(data_train['target'])
+    return data_train, data_valid, vocab
+
 
 def load_dataset():
     # if(os.path.exists('data/persona_ed/dataset_preproc.p')):
@@ -277,18 +320,19 @@ def load_dataset():
 
     data_tra, data_val, vocab = read_langs_persona_poem(data_tra, data_val, vocab)
 
+    #data_tra, data_val, vocab = read_langs_persona_poem_all(data_tra, data_val, vocab)  # 输入topic生成全诗
 
 
-    with open('data/persona_ed/dataset_preproc.p', "wb") as f:
-        pickle.dump([data_tra, data_val, vocab], f)
-        print("Saved PICKLE")
+    # with open('data/persona_ed/dataset_preproc.p', "wb") as f:
+    #     pickle.dump([data_tra, data_val, vocab], f)
+    #     print("Saved PICKLE")
             
-    # for i in range(3):
-    #     print('[situation]:', ' '.join(data_tra['situation'][i]))
-    #     print('[emotion]:', data_tra['emotion'][i])
-    #     print('[context]:', [' '.join(u) for u in data_tra['context'][i]])
-    #     print('[target]:', ' '.join(data_tra['target'][i]))
-    #     print(" ")
+    for i in range(3):
+        print('[situation]:', ' '.join(data_tra['situation'][i]))
+        print('[emotion]:', data_tra['emotion'][i])
+        print('[context]:', str([' '.join(u) for u in data_tra['context'][i]]).encode("utf-8").decode("latin1"))
+        print('[target]:', ' '.join(data_tra['target'][i]).encode("utf-8").decode("latin1"))
+        print(" ")
 
 
 

@@ -68,6 +68,8 @@ parser.add_argument("--heads", type=int, default=4)
 parser.add_argument("--depth", type=int, default=256)
 parser.add_argument("--filter", type=int, default=512)
 
+parser.add_argument("--start_iter", type=int, default=0)
+
 def print_opts(opts):
     """Prints the values of all command-line arguments.
     """
@@ -103,6 +105,7 @@ adagrad_init_acc=0.1
 rand_unif_init_mag=0.02
 trunc_norm_init_std=1e-4
 max_grad_norm=arg.max_grad_norm
+start_iter=arg.start_iter
 
 USE_CUDA = arg.cuda
 pointer_gen = arg.pointer_gen

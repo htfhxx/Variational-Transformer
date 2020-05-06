@@ -662,6 +662,7 @@ class MultiHeadAttention(nn.Module):
         if mask is not None:
             mask = mask.unsqueeze(1)  # [B, 1, 1, T_values]
             logits = logits.masked_fill(mask, -1e18)
+            #logits = logits.masked_fill(mask[:, :200, :200], -1e18)
 
 
         # # Add bias to mask future values

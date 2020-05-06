@@ -134,17 +134,24 @@ cpu：
 python3 main.py --model cvaetrs --v2  --emb_dim 200 --hidden_dim 300 --hop 4 --heads 4  --batch_size 16 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path save/trained_model/   > save/out.txt 2>&1 &
 
 GPU：
-python3 main.py --model cvaetrs --v2 --cuda --device 0 --emb_dim 200 --hidden_dim 300 --hop 4 --heads 4 --batch_size 4 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path save/trained_model/            > save/out.txt
+python3 main.py --model cvaetrs --v2 --cuda --device 1 --emb_dim 200 --hidden_dim 300 --hop 4 --heads 4 --batch_size 4 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path save/trained_model/    
 
 
-nohup python3 main.py --model cvaetrs --v2 --cuda --device 0 --emb_dim 200 --hidden_dim 300 --hop 4 --heads 4 --batch_size 4 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path save/trained_model/ > save/out.txt  2>&1 &
+nohup python3 main.py --model cvaetrs --v2 --cuda --device 1 --emb_dim 200 --hidden_dim 300 --hop 4 --heads 4 --batch_size 4 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path save/trained_model/ > save/out.txt  2>&1 &
 
 
+延续模型训练
+--save_path_pretrained  model_299999_12.6922_1.3430_0.0000_0.0000_12.3973 --start_iter 300000
+
+nohup python3 main.py --model cvaetrs --v2 --cuda --device 0 --emb_dim 200 --hidden_dim 300 --hop 4 --heads 4 --batch_size 1 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path sa
+ve/trained_model/  --save_path_pretrained  save/trained_model/model_299999_12.6922_1.3430_0.0000_0.0000_12.3973 --start_iter 300000  > save/out2.txt  2>&1 &
+
+nohup python3 main.py --model cvaetrs --v2 --cuda --device 0 --emb_dim 200 --hidden_dim 300 --hop 4 --heads 4 --batch_size 1 --persona --lr 0.0002 --pretrain_emb --num_var_layers 1 --kl_ceiling 0.05 --aux_ceiling 1 --full_kl_step 12000 --dataset empathetic --save_path save/trained_model/  --save_path_pretrained  save/trained_model/model_1549999_12.8752_1.5393_0.0000_0.0000_12.4439 --start_iter 1550000  > save/out4.txt  2>&1 &
 
 
 
 ### test test test
-python interact.py --model cvaetrs --v2 --persona --dataset empathetic --save_path_pretrained save/v2_cvae_trs_ed_persona_0.6/model_79999_4.2606_12.1841_0.0000_0.0000_1.7605 --num_var_layers 1
+python3 interact.py --model cvaetrs --cuda --v2 --persona --dataset empathetic --save_path_pretrained save/trained_model/model_5099999_11.7117_1.5160_0.0000_0.0000_11.2956 --num_var_layers 1
 
 
 
